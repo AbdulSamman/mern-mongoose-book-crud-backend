@@ -11,7 +11,7 @@ export const getBooks = async () => {
   rawBooks.map((rawBook) => {
     const book = {
       ...rawBook.toObject({ versionKey: false }),
-      languageText:
+      language:
         rawBook.language.charAt(0).toUpperCase() + rawBook.language.slice(1),
     };
     books.push(book);
