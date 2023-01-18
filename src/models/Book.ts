@@ -6,5 +6,6 @@ const bookSchema = new Schema({
   numberOfPages: Number,
   language: String,
   imageUrl: String,
+  buyUrl: String,
 });
 export const Book = model("book", bookSchema);

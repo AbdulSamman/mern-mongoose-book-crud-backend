@@ -3,11 +3,19 @@ import mongoose from "mongoose";
 import * as config from "./config.js";
 
 mongoose.set("strictQuery", false);
-
 mongoose.connect(config.MONGODB_CONNECTION);
 
 export const getBooks = async () => {
-  const books = await Book.find();
+  const rawBooks = await Book.find();
+  const books = [];
+  rawBooks.map((rawBook) => {
+    const book = {
+      ...rawBook.toObject({ versionKey: false }),
+      languageText:
+        rawBook.language.charAt(0).toUpperCase() + rawBook.language.slice(1),
+    };
+    books.push(book);
+  });
   return books;
 };
 
