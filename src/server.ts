@@ -5,15 +5,13 @@ import * as config from "./config.js";
 
 const app = express();
 app.use(cors());
-//LOGGER wird immer ausgefüht, an einige stelle als middleware
-/* 
-app.get('/books', logger,(req: express.Request, res: express.Response) => {
-	res.json(model.getBooks());
-});
-*/
 
 app.get("/", (req: express.Request, res: express.Response) => {
   res.send(model.getApiInstructions());
+});
+app.get("/books", (req: express.Request, res: express.Response) => {
+  const books = model.getBooks();
+  res.status(200).json(books);
 });
 
 app.listen(config.port, () => {

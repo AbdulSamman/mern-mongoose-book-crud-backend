@@ -1,16 +1,8 @@
-@url = http://localhost:3610
+@url = http://localhost:3737
 
 ### BASE
 {{url}}
 
 ### ALL BOOKS
-{{url}}/books
-
-### SINGLE BOOK 
-{{url}}/books/2
-
-### SINGLE BOOK: ERROR TEST NOT A NUMBER
-{{url}}/books/skjfksdfj
-
-### SINGLE BOOK: ERROR TEST ID OUT OF RANGE
-{{url}}/books/9997
+GET {{url}}/books
+ 
