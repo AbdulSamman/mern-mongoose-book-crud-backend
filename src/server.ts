@@ -9,8 +9,8 @@ app.use(cors());
 app.get("/", (req: express.Request, res: express.Response) => {
   res.send(model.getApiInstructions());
 });
-app.get("/books", (req: express.Request, res: express.Response) => {
-  const books = model.getBooks();
+app.get("/books", async (req: express.Request, res: express.Response) => {
+  const books = await model.getBooks();
   res.status(200).json(books);
 });
 

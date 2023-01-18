@@ -1,8 +1,8 @@
 @url = http://localhost:3737
 
-### BASE
+### GET BASE
 {{url}}
 
-### ALL BOOKS
+### GET ALL BOOKS
 GET {{url}}/books
  

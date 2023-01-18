@@ -1,10 +1,14 @@
-export const getBooks = () => {
-  return [
-    {
-      title: "title 111",
-    },
-    { title: "title 222" },
-  ];
+import { Book } from "./models/Book.js";
+import mongoose from "mongoose";
+import * as config from "./config.js";
+
+mongoose.set("strictQuery", false);
+
+mongoose.connect(config.MONGODB_CONNECTION);
+
+export const getBooks = async () => {
+  const books = await Book.find();
+  return books;
 };
 
 export const getApiInstructions = () => {
